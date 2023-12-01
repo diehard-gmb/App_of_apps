@@ -1,3 +1,7 @@
+def frontendImage="pandaacademy/frontend"
+def backendImage="pandaacademy/backend"
+def dockerRegistry=""
+def registryCredentials="dockerhub"
 
 pipeline {
 
