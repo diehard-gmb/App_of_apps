@@ -33,5 +33,10 @@ pipeline {
 				}
 			}
 		}
+		stage('remove_containers') {
+			steps {
+				sh 'ls -ltra'
+			}
+		}
 	}
 }
