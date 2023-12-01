@@ -39,7 +39,7 @@ pipeline {
 		}
 		stage('remove_containers') {
 			steps {
-				sh 'docker rm -f backend frontend | true'
+				sh 'docker rm -f backend frontend || true'
 			}
 		}
 		stage('deploy_application'){
