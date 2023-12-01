@@ -2,9 +2,41 @@
 - name: deploy application
   hosts: all
   become: true
+
   vars:
     deployment_path: "/home/ubuntu/app"
     compose_path: "./docker-compose.yml"
+
   roles:
     - geerlingguy.docker
 
+
+  tasks:
+    - name: update
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: install pip
+      package:
+        name:
+          - python3-pip
+        state: present
+    - name: install docker / docker-compose
+      pip:
+        name:
+        - docker
+        - docker-compose
+    - name: create folder
+      file:
+        path: "{{ deployment_path }}"
+        state: directory
+        mode: '0755'
+    - name: Copy docker compose
+      copy:
+        src: "{{ compose_path }}"
+        dest: "{{ deployment_path }}"
+    - name: run docker-compose
+      docker_compose:
+        project_src: "{{ deployment_path }}"
+        build: yes
+      environment:
+        FRONTEND_IMAGE: "{{ lookup('env','FRONTEND_IMAGE') }}"
+        BACKEND_IMAGE:  "{{ lookup('env','BACKEND_IMAGE') }}"
