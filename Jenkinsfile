@@ -35,7 +35,7 @@ pipeline {
 		}
 		stage('remove_containers') {
 			steps {
-				sh 'ls -ltra'
+				sh '#docker rm -f backend frontend'
 			}
 		}
 	}
