@@ -1,5 +1,5 @@
-def frontendImage="pandaacademy/frontend"
-def backendImage="pandaacademy/backend"
+def frontendImage="diehardgmb77/frontend"
+def backendImage="diehardgmb77/backend"
 def dockerRegistry=""
 def registryCredentials="dockerhub"
 
