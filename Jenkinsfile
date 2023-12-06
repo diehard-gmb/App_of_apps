@@ -12,10 +12,10 @@ pipeline {
 		label 'master'
 	}
 
-	environment {
+	tools {
 		terraform 'Terraform'
-
 	}
+
 	parameters {
 		string(name: 'backendDockerTag', defaultValue: '', description: 'Backend tag')
 	        string(name: 'frontendDockerTag', defaultValue: '', description: 'Frontend tag')
