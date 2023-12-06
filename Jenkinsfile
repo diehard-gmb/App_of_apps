@@ -65,6 +65,20 @@ pipeline {
 			}
 		}
 	}
+
+	        stage('Run terraform') {
+        	    steps {
+                	dir('Terraform') {                
+                    	git branch: 'main', url: 'https://github.com/diehard-gmb/terraform-lab02.git'
+	                    withAWS(credentials:'AWS', region: 'us-east-1') {
+        	                    sh 'terraform init -backend-config=bucket=panda-academy-panda-devops-core-n'
+                	            sh 'terraform apply -auto-approve -var bucket_name=panda-academy-panda-devops-core-n'
+                            
+                 	   	} 
+                	}
+            	   }
+	        }
+
     post {
         always {
           sh "docker-compose down"
