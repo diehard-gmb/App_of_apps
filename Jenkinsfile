@@ -9,7 +9,7 @@ def backendDockerTag=""
 pipeline {
 
 	agent {
-		label 'master'
+		label 'agent'
 	}
 
 	tools {
