@@ -1,7 +1,7 @@
 def frontendImage="diehardgmb77/frontend"
 def backendImage="diehardgmb77/backend"
 def dockerRegistry=""
-def registryCredentials="docker-hub"
+def registryCredentials="dockerhub"
 def frontendDockerTag=""
 def backendDockerTag=""
 
