@@ -72,7 +72,7 @@ pipeline {
 	        	                git branch: 'main', url: 'https://github.com/diehard-gmb/terraform-lab02.git'
         	        	        withAWS(credentials:'AWS', region: 'us-east-1') {
                 	                    sh 'terraform init -backend-config=bucket=tomasz-wojda-panda-devops-core-15'
-                        	            sh 'terraform apply -auto-approve -var bucket_name=tomasz-wojda-panda-devops-core-1>
+                        	            sh 'terraform apply -auto-approve -var bucket_name=tomasz-wojda-panda-devops-core-15'
                             		}
                         	}
                    	}
